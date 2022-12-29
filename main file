@@ -1,0 +1,42 @@
+from tkinter import *
+# Creating a GUI Window
+window = Tk()
+window.title("INR Currency Converter") #title label
+window.geometry('550x500')
+def myfunction(): #defining function
+    Dollar = float(data.get())*0.013 #conversion operation
+    Euro = float(data.get())*0.012 
+    Riyal = float(data.get())*0.049
+  
+    t1.delete("1.0",END)
+    t1.insert(END, Dollar) #show result
+    t2.delete("1.0",END)
+    t2.insert(END, Euro)
+    t3.delete("1.0",END)
+    t3.insert(END, Riyal)
+
+e1 = Label(window, text="Enter the Amount in INR") #labels
+data = StringVar() #define datatype of input
+e2 = Entry(window, textvariable=data) #window to take input
+e3 = Label(window, text="Dollar")
+e4 = Label(window, text="Euro")
+e5 = Label(window, text="Riyal")
+
+
+t1 = Text(window, height=3, width=25) #textboxes to print result
+t2 = Text(window, height=3, width=25)
+t3 = Text(window, height=3, width=25)
+
+b1 = Button(window,text="Convert",fg='red',command=myfunction) #convert button
+
+e1.grid(row=0, column=0) #position of labels and textboxes
+e2.grid(row=0, column=1)
+e3.grid(row=1, column=0)
+e4.grid(row=1, column=1)
+e5.grid(row=1, column=2)
+t1.grid(row=2, column=0)
+t2.grid(row=2, column=1)
+t3.grid(row=2, column=2)
+b1.grid(row=0, column=2)
+
+window.mainloop()
